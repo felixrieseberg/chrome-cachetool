@@ -8,15 +8,15 @@ This repository contains Chrome &amp; Chromium's "cachetool", found in https://c
 Available cache backend types: simple, blockfile
 
 Available subcommands:
-  `batch`: Starts cachetool to process serialized commands passed down by the standard input and return commands output in the stdout until the stop command is received.
-  `delete_key <key>`: Delete key from cache.
-  `delete_stream <key> <index>`: Delete a particular stream of a given key.
-  `get_size`: Calculate the total size of the cache in bytes.
-  `get_stream <key> <index>`: Print a particular stream for a given key.
-  `list_keys`: List all keys in the cache.
-  `list_dups`: List all resources with duplicate bodies in the cache.
-  `update_raw_headers <key>`: Update stdin as the key’s raw response headers.
-  `stop`: Verify that the cache can be opened and return, confirming the cache exists and is of the right type.
+ * `batch`: Starts cachetool to process serialized commands passed down by the standard input and return commands output in the stdout until the stop command is received.
+ * `delete_key <key>`: Delete key from cache.
+ * `delete_stream <key> <index>`: Delete a particular stream of a given key.
+ * `get_size`: Calculate the total size of the cache in bytes.
+ * `get_stream <key> <index>`: Print a particular stream for a given key.
+ * `list_keys`: List all keys in the cache.
+ * `list_dups`: List all resources with duplicate bodies in the cache.
+ * `update_raw_headers <key>`: Update stdin as the key’s raw response headers.
+ * `stop`: Verify that the cache can be opened and return, confirming the cache exists and is of the right type.
   
 Expected values of <index> are:
 ```
