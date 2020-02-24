@@ -9,6 +9,7 @@
     "moduleResolution": "node",
     "sourceMap": true,
     "baseUrl": ".",
+    "declaration": true,
     "paths": {
       "*" : ["./node_modules/@types/*", "*"]
     }

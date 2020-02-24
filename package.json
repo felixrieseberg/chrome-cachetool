@@ -4,6 +4,7 @@
   "description": "Chrome's cachetool, usable from Node",
   "main": "dist/index.js",
   "bin": "bin/cachetool",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "prepublish": "npm run build",
