@@ -20,7 +20,7 @@
     "cachetool"
   ],
   "os": [
-    "!win32"
+    "darwin"
   ],
   "author": "Felix Rieseberg <felix@felixrieseberg.com>",
   "license": "MIT",

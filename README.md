@@ -1,7 +1,7 @@
 # chrome-cachetool
 This repository contains Chrome &amp; Chromium's "cachetool", found in https://cs.chromium.org/chromium/src/net/tools/cachetool/. The only reason this repository exists is so that you can download the command line tool without having to have the whole Chromium repository on your machine just to create this tool.
 
-This is _also_ a Node module, if you want to consume `cachetool` from Node.
+This is _also_ a Node module, if you want to consume `cachetool` from Node. You can install it with `npm install chrome-cachetool`.
 
 :doughnut: **Download `cachetool` [here](https://github.com/felixrieseberg/chrome-cachetool/releases)**
 
