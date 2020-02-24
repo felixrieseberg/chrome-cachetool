@@ -1,8 +1,9 @@
 {
-  "name": "chrome-cachetool",
+  "name": "cachetool",
   "version": "1.0.0",
   "description": "Chrome's cachetool, usable from Node",
   "main": "dist/index.js",
+  "bin": "bin/cachetool",
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "prepublish": "npm run build",
