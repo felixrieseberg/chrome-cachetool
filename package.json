@@ -1,0 +1,35 @@
+{
+  "name": "chrome-cachetool",
+  "version": "1.0.0",
+  "description": "Chrome's cachetool, usable from Node",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepublish": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felixrieseberg/chrome-cachetool.git"
+  },
+  "keywords": [
+    "chrome",
+    "chromium",
+    "electron",
+    "cachetool.cc",
+    "cachetool"
+  ],
+  "os": [
+    "!win32"
+  ],
+  "author": "Felix Rieseberg <felix@felixrieseberg.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/felixrieseberg/chrome-cachetool/issues"
+  },
+  "homepage": "https://github.com/felixrieseberg/chrome-cachetool#readme",
+  "devDependencies": {
+    "@types/node": "^13.7.4",
+    "typescript": "^3.8.2"
+  }
+}

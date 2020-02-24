@@ -1,9 +1,11 @@
 # chrome-cachetool
 This repository contains Chrome &amp; Chromium's "cachetool", found in https://cs.chromium.org/chromium/src/net/tools/cachetool/. The only reason this repository exists is so that you can download the command line tool without having to have the whole Chromium repository on your machine just to create this tool.
 
+This is _also_ a Node module, if you want to consume `cachetool` from Node.
+
 :doughnut: **Download `cachetool` [here](https://github.com/felixrieseberg/chrome-cachetool/releases)**
 
-## Usage
+## Usage (cachetool binary)
 
 `cachetool <cache_path> <cache_backend_type> <subcommand>`
 
@@ -19,14 +21,40 @@ Available subcommands:
  * `list_dups`: List all resources with duplicate bodies in the cache.
  * `update_raw_headers <key>`: Update stdin as the key’s raw response headers.
  * `stop`: Verify that the cache can be opened and return, confirming the cache exists and is of the right type.
-  
+
 Expected values of <index> are:
 ```
   0 (HTTP response headers)
   1 (transport encoded content)
   2 (compiled content)
 ```
-  
+
+## Usage (Node module)
+
+```js
+const cachetool = require('chrome-cachetool')
+
+const options = {
+  // Required: Path to your cache
+  cachePath: '/Users/felix/Desktop/Cache',
+  // 'simple' by default. Can either be 'simple' or 'blockfile'.
+  cacheBackendType: 'simple',
+  // False by default. Errors will be logged to console unless true.
+  silent: true,
+  // Required for commands that need a key
+  key: 'https://my.key.com/asset.png',
+  // 0 by default. Can optionally be another number.
+  index: 0
+}
+
+await cachetool.deleteKey(options)
+await cachetool.deleteStream(options)
+await cachetool.getSize(options)
+await cachetool.getStream(options)
+await cachetool.listKeys(options)
+await cachetool.listDups(options)
+```
+
 ## How to build `cachetool`
 
 1. Get `chromium`
