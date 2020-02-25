@@ -69,12 +69,12 @@ export interface GetStreamOptions extends CommonCachetoolOptions {
   index?: number;
 }
 
-export async function getStream(options: GetStreamOptions): Promise<string | Array<Buffer>> {
-  const parse = options.index > 0;
+export async function getStream(options: GetStreamOptions): Promise<string | Buffer> {
+  const parse = options.index === 0;
   const commandArgs = [ options.key, options.index?.toString() || '0' ];
   const result = await runCommand({ command: Commands.getStream, commandArgs, parse, ...options });
 
-  return parse ? result.join() : result as Array<Buffer>;
+  return parse ? result.join() : Buffer.concat(result as Array<Buffer>);
 }
 
 /**

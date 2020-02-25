@@ -39,6 +39,11 @@ export function runCommand<T>(
     OneOperationOnlyList.push(cachePath);
 
     const args = [ cachePath, cacheBackendType || 'simple', command, ...(commandArgs || []) ];
+
+    if (!silent) {
+      console.log(`Cachetool: Running ${EXEC_PATH} ${args.join(' ')}`);
+    }
+
     const child = spawn(EXEC_PATH, args);
     const result = [];
     const errors = [];
