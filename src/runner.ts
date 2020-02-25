@@ -4,7 +4,6 @@ import * as path from 'path';
 import { Commands } from '.';
 
 const EXEC_PATH = path.join(__dirname, '../bin/cachetool');
-let OneOperationOnlyList = [];
 
 /**
  * Types
@@ -32,12 +31,6 @@ export function runCommand<T>(
   { cachePath, cacheBackendType, command, commandArgs, silent, parse }: RunCommandOptions
 ): Promise<Array<string | T>> {
   return new Promise((resolve, reject) => {
-    if (OneOperationOnlyList.includes(cachePath)) {
-      return reject(`An operation on ${cachePath} is already running.`);
-    }
-
-    OneOperationOnlyList.push(cachePath);
-
     const args = [ cachePath, cacheBackendType || 'simple', command, ...(commandArgs || []) ];
 
     if (!silent) {
