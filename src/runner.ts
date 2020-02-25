@@ -3,7 +3,12 @@ import * as path from 'path';
 
 import { Commands } from '.';
 
-const EXEC_PATH = path.join(__dirname, '../bin/cachetool');
+const IS_ELECTRON = 'electron' in process.versions;
+const IS_ASAR = !!process?.mainModule?.filename?.includes('app.asar');
+const PRE_EXEC_PATH = path.join(__dirname, '../bin/cachetool');
+const EXEC_PATH = IS_ASAR
+  ? PRE_EXEC_PATH.replace('app.asar', 'app.asar.unpacked')
+  : PRE_EXEC_PATH;
 
 /**
  * Types
@@ -44,7 +49,10 @@ export function runCommand<T>(
 
     child.stdout.on('data', (data: Buffer) => {
       const entry = toString ? data.toString().trim() : data;
-      result.push(entry)
+
+      if (entry) {
+        result.push(entry)
+      }
     });
     child.stderr.on('data', (data: Buffer) => {
       errors.push(data.toString().trim())
