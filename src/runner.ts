@@ -3,12 +3,9 @@ import * as path from 'path';
 
 import { Commands } from '.';
 
-const IS_ELECTRON = 'electron' in process.versions;
-const IS_ASAR = !!process?.mainModule?.filename?.includes('app.asar');
-const PRE_EXEC_PATH = path.join(__dirname, '../bin/cachetool');
-const EXEC_PATH = IS_ASAR
-  ? PRE_EXEC_PATH.replace('app.asar', 'app.asar.unpacked')
-  : PRE_EXEC_PATH;
+const EXEC_PATH = path
+  .join(__dirname, '../bin/cachetool')
+  .replace('app.asar', 'app.asar.unpacked');
 
 /**
  * Types
