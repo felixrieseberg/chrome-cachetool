@@ -51,8 +51,6 @@ export function runCommand<T>(
     });
 
     child.on('close', (code) => {
-      OneOperationOnlyList = OneOperationOnlyList.filter((k) => k !== cachePath);
-
       if (!silent) {
         console.log(`cachetool process exited with code ${code}`);
       }
